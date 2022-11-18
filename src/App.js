@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
 import PeopleList from "./pages/Dashboard/components/PeopleList";
+import PersonProfile from "./pages/PersonProfile/index";
 import "./styles.css";
 
 export default function App() {
@@ -28,6 +29,15 @@ export default function App() {
       </header>
       <Routes>
         <Route path="/Dashboard" element={<PeopleList people={people} />} />
+        <Route
+          path="/people/:id"
+          element={
+            <PersonProfile
+              setHiredPeople={setHiredPeople}
+              hiredPeople={hiredPeople}
+            />
+          }
+        />
       </Routes>
     </>
   );
