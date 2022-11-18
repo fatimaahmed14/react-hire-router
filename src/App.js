@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Route, Routes } from "react-router";
 import { Link } from "react-router-dom";
-import PeopleList from "./pages/Dashboard/components/PeopleList";
+import Dashboard from "./pages/Dashboard";
 import PersonProfile from "./pages/PersonProfile/index";
 import "./styles.css";
 
@@ -22,13 +22,16 @@ export default function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/Dashboard">Dashboard</Link>
+              <Link to="/">Dashboard</Link>
             </li>
           </ul>
         </nav>
       </header>
       <Routes>
-        <Route path="/Dashboard" element={<PeopleList people={people} />} />
+        <Route
+          path="/"
+          element={<Dashboard people={people} hiredPeople={hiredPeople} />}
+        />
         <Route
           path="/people/:id"
           element={
